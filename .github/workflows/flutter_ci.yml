@@ -31,8 +31,6 @@ jobs:
           flutter-version: "3.27.0"
       - name: Flutter doctor verbose
         run: flutter doctor -v
-      - name: Clean Gradle cache
-        run: ./gradlew clean
       - name: Install dependencies
         run: flutter pub get
       - name: Build Apk
