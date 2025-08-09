@@ -17,6 +17,10 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.27.0"
+      - name: Create .env file from secrets
+        run: |
+          echo "API_URL=${{ secrets.API_URL }}" > .env
+          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
       - name: Install dependencies
         run: flutter pub get
       - name: Build Apk
@@ -32,6 +36,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Create .env file from secrets
+        run: |
+          echo "API_URL=${{ secrets.API_URL }}" > .env
+          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
